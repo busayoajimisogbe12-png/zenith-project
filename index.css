@@ -1,0 +1,1034 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f8f5ef;
+    color: #111;
+}
+
+    /* NAVBAR */
+
+.navbar{
+    width: 100%;
+    height: 90px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e0d8;
+    position: fixed;
+    z-index: 11;
+}
+
+    /* LOGO */
+.logo{
+    width: 200px;
+}
+.logo img{
+    width: 90px;
+    margin-top: -10px;
+    margin-left: 60px;
+}
+.logo span{
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+    text-align: center;
+    /* margin-top: -20px; */
+}
+
+    /* NAVIGATION */
+nav {
+    /* background-color: red; */
+    width: 400px;
+    justify-content: center;
+    display: flex;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+nav a{
+    text-decoration: none;
+    color: #222;
+    font-size: 13px;
+    transition: 0.3s;
+    font-family: "Montserrat", sans-serif;
+}
+nav a:hover{
+    color: #b38a45;
+}
+
+    /* BOOKING BUTTON */
+.booking-btn{
+    text-decoration: none;
+    background-color: #151515;
+    color: white;
+    padding: 13px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: 0.3;
+    /* border-radius: 10px; */
+}
+.booking-btn:hover{
+    background-color: #b38a45;
+}
+
+/* ================================
+   CART NAVBAR
+================================ */
+
+.cart-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0 15px;
+}
+
+.cart-link i {
+    transition: 0.3s ease;
+}
+
+.cart-link:hover i {
+    color: #d4af62;
+}
+
+
+/* CART NUMBER */
+
+#cart-count {
+    position: absolute;
+
+    top: -9px;
+    right: -10px;
+
+    width: 17px;
+    height: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #d4af62;
+    color: #111;
+
+    font-size: 9px;
+    font-weight: bold;
+}
+
+/* ================================
+   HERO CAROUSEL
+================================ */
+
+.hero-carousel {
+    height: calc(100vh - 5px);
+    /* margin-top: 60px; */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* ================================
+   SLIDE TRACK
+================================ */
+
+#hero-track {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+
+/* ================================
+   EACH SLIDE
+================================ */
+
+.hero-slide {
+    position: relative;
+    width: 33.333333%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+/* ================================
+   SLIDE IMAGES
+================================ */
+
+.hero-slide:nth-child(1) {
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.4),
+            rgba(0,0,0,0.4)
+        ),
+        url("./image/WhatsApp\ Image\ 2026-09-22\ at\ 12.59.57\ PM.jpeg");
+}
+.hero-slide:nth-child(2) {
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.4),
+            rgba(0,0,0,0.4)
+        ),
+        url("./image/WhatsApp\ Image\ 2026-09-22\ at\ 12.59.56\ PM\ \(1\).jpeg");
+}
+.hero-slide:nth-child(3) {
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.4),
+            rgba(0,0,0,0.4)
+        ),
+        url("./image/WhatsApp\ Image\ 2026-09-22\ at\ 12.59.56\ PM.jpeg");
+}
+
+/* ================================
+   ZOOM EFFECT
+================================ */
+
+.hero-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: transform 5s ease;
+}
+
+
+/* Zoom active slide */
+
+.hero-slide.active::before {
+    transform: scale(1.08);
+}
+
+
+/* ================================
+   HERO CONTENT
+================================ */
+
+.hero-content {
+    position: relative;
+    /* z-index: 2; */
+    color: white;
+    max-width: 850px;
+    padding: 20px;
+    text-align: start;
+    opacity: 0;
+    margin-left: -500px;
+    transform: translateY(30px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+/* Content animation */
+
+.hero-slide.active .hero-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* SMALL TITLE */
+
+.hero-content > p:first-child {
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+/* MAIN HEADING */
+
+.hero-content h1 {
+    font-family: Georgia, serif;
+    /* font-size: clamp(35px, 7vw, 50px); */
+    font-size: 40px;
+    line-height: 0.95;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+
+/* DESCRIPTION */
+
+.hero-text {
+    max-width: 500px;
+    margin: 0 auto 35px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.hero-buttons {
+    display: flex;
+    /* justify-content: center; */
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+    padding: 16px 28px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+
+.hero-buttons a:first-child {
+    background: white;
+    color: #111;
+}
+
+.hero-buttons a:last-child {
+    border: 1px solid white;
+    color: white;
+}
+
+.hero-buttons a:hover {
+    background: #b38a45;
+    color: white;
+    border-color: #b38a45;
+}
+
+
+/* ================================
+   PREVIOUS / NEXT
+================================ */
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0,0,0,0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.6);
+    color: white;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.prev {
+    left: 30px;
+}
+
+.next {
+    right: 30px;
+}
+
+.prev:hover,
+.next:hover {
+    background: white;
+    color: #111;
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+/* ================================
+   DOTS
+================================ */
+
+.carousel-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: white;
+    width: 25px;
+    border-radius: 10px;
+}
+
+/* ================================
+   MOBILE MENU BUTTON (hidden on desktop)
+================================ */
+.btn-menu {
+    position: relative;
+    background: red;
+    border: none;
+    cursor: pointer;
+    /* z-index: 1000; */
+}
+ .icon {
+    display: none;
+    font-size: 30px;
+    color: #111;
+}
+.menu {
+    position: absolute;
+    top: 39px;
+    right: -19.5px;
+    background: #fff;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    /* border: 1px solid #e5e0d8; */
+    /* padding: 10px 0; */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: 0.25s ease;
+    z-index: 2000;
+}
+.btn-menu .menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+ .menu a {
+    padding: 12px 20px;
+    line-height: 30px;
+    text-decoration: none;
+    color: #222;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    border-bottom: 1px solid #f1ede4;
+}
+.btn-menu .menu a:last-of-type {
+    border-bottom: none;
+}
+.btn-menu .menu a:hover {
+    color: #b38a45;
+}
+.btn-menu .book-btn {
+    padding: 10px 20px;
+}
+/* .btn-menu .book-btn .booking {
+    display: block;
+    text-align: center;
+    background-color: #151515;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.btn-menu .book-btn .booking:hover {
+    background-color: #b38a45;
+} */
+/* .btn-menu:focus .menu{
+    visibility: visible;
+} */
+
+
+
+    /* SECTION-2 */
+#section-2{
+    background-color: #f8f5ef;
+    /* background-color: red; */
+    height: fit-content;
+    width: 100%;
+}
+.sub-sec-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 90%;
+}
+.div-1{
+    /* background-color: brown;
+    width: 550px;
+    height: 50vh; */
+    padding: 20px 0;
+}
+.div-1 span{
+    display: block;
+    margin-bottom: 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #b38a45;
+    letter-spacing: 1px;
+}
+.div-1 h2{
+    margin: 0 0 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: #111;
+    line-height: 1.08;
+}
+.div-1 p {
+    max-width: 500px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    color: #555;
+    line-height: 1.3;
+}
+.story{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 25px;
+    background-color: #111;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+.story:hover{
+    background-color: #b38a45;
+    color: #fff;
+    transform: translateY(-2px);
+}
+.div-2{
+    width: 550px;
+    height: 50vh;
+    margin-top: 25px;
+    background-image: url("./image/sec-2\ image.jpeg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* subtle luxury overlay */
+
+.div-2::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.08),
+        transparent
+    );
+}
+
+/* =========================================
+   SECTION 3 - OUR COLLECTIONS
+========================================= */
+
+.section-3 {
+    width: 100%;
+    padding: 50px 6%;
+    background-color: #f8f5ef;
+}
+
+
+/* SECTION TITLE */
+
+.section-3 h3 {
+    margin: 0 0 12px;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+
+    color: #b08d45;
+}
+
+
+/* VIEW ALL COLLECTIONS */
+
+.section-3 > a {
+    display: block;
+    width: fit-content;
+
+    margin-left: auto;
+    margin-bottom: 30px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    color: #222;
+
+    transition: 0.3s ease;
+}
+
+.section-3 > a:hover {
+    color: #b08d45;
+}
+
+
+/* =========================================
+   COLLECTION CARDS
+========================================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 100%;
+}
+
+
+/* INDIVIDUAL CARD */
+
+.card-image {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+/* IMAGE */
+
+.card-image img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+}
+
+
+/* IMAGE HOVER */
+
+.card-image:hover img {
+    transform: scale(1.05);
+}
+
+
+/* COLLECTION NAME */
+
+.card-image h4 {
+    margin: 15px 0 5px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #111;
+}
+
+
+/* EXPLORE TEXT */
+
+.card-image a {
+    margin-top: 2px;
+    display: inline-block;
+    font-size: 12px;
+    color: #777;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.card-image:hover a {
+    color: #b08d45;
+}
+
+/* ================================
+   RESPONSIVE BREAKPOINTS
+================================ */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 4%;
+    }
+    nav {
+        gap: 18px;
+    }
+    nav a {
+        font-size: 12px;
+    }
+    .hero-content {
+        margin-left: -250px;
+        max-width: 650px;
+    }
+    .hero-content h1 {
+        font-size: 34px;
+    }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 860px) {
+    nav {
+        display: none; /* full nav hidden, hamburger takes over */
+    }
+    .booking-btn {
+        display: none; /* moved into hamburger menu */
+    }
+    .btn-menu {
+        display: block;
+    }
+    .btn-menu .icon{
+        display: block;
+    }
+    
+    .hero-content {
+        margin-left: 0;
+        padding: 0 25px;
+        text-align: left;
+    }
+    .hero-text {
+        margin: 0 0 35px;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+    .navbar {
+        height: 70px;
+        padding: 0 20px;
+    }
+    .logo img {
+        width: 65px;
+        margin-top: 0;
+    }
+    .hero-carousel {
+        height: calc(100vh - 60px);
+    }
+    .hero-content {
+        padding: 0 15px;
+    }
+    .hero-content > p:first-child {
+        font-size: 10px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+    .hero-content h1 {
+        font-size: 23px;
+        /* letter-spacing: 1px; */
+        margin-bottom: 15px;
+    }
+    .hero-text {
+        font-size: 14px;
+        line-height: 1.5;
+        width: 250px;
+        margin-bottom: 25px;
+    }
+    .hero-buttons a {
+        padding: 13px 20px;
+        font-size: 10px;
+    }
+    .prev, .next {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+    .prev { left: 12px; }
+    .next { right: 12px; }
+    .carousel-dots {
+        bottom: 16px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+    .hero-content{
+        /* padding: 0 10px; */
+        margin-left: -30px;
+    }
+    .hero-content h1 {
+        font-size: 20px;
+    }
+    .hero-text{
+        width: 150px;
+        font-size: 12px;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-buttons a {
+        text-align: center;
+    }
+    .prev{ display: none;}
+    .next{ display: none;}
+    .logo{
+        margin-left: -50px;
+    }
+    .icon{
+        font-size: 25px;
+    }
+}
+
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 900px) {
+
+    #section-2 {
+        padding: 45px 5%;
+    }
+
+    .sub-sec-2 {
+        gap: 40px;
+    }
+
+    .sub-sec-2 .div-1 h2 {
+        font-size: 40px;
+    }
+
+    .sub-sec-2 .div-2 {
+        height: 400px;
+    }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    #section-2 {
+        padding: 50px 20px;
+    }
+
+    .sub-sec-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+
+        align-items: stretch;
+    }
+
+    /* text comes first */
+    .sub-sec-2 .div-1 {
+        padding: 0;
+    }
+
+    .sub-sec-2 .div-1 span {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;    
+    }
+
+    .sub-sec-2 .div-1 h2 {
+        font-size: 34px;
+        line-height: 1.1;
+        margin-bottom: 20px;
+    }
+
+    .sub-sec-2 .div-1 p {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    .sub-sec-2 .div-1 > div {
+        padding: 13px 23px;
+        font-size: 13px;
+    }
+
+    /* image underneath */
+    .sub-sec-2 .div-2 {
+        width: 100%;
+        height: 350px;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+/* =================================
+   SMALL PHONES
+================================= */
+
+@media (max-width: 380px) {
+
+    #section-2 {
+        padding: 50px 18px;
+    }
+    .sub-sec-2 .div-1 h2 {
+        font-size: 30px;
+    }
+    .sub-sec-2 .div-1 p {
+        font-size: 14px;
+    }
+    .sub-sec-2 .div-2 {
+        height: 300px;
+    }
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1000px) {
+
+    .section-3 {
+        padding: 60px 5%;
+    }
+
+    .card-image {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .section-3 {
+        padding: 55px 20px;
+    }
+
+    .section-3 h3 {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+    }
+
+    .section-3 > span {
+        margin-left: 0;
+        margin-bottom: 25px;
+
+        font-size: 12px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .card-image {
+        height: 250px;
+    }
+
+}
+
+
+/* ================================
+   SMALL PHONES
+================================ */
+
+@media (max-width: 380px) {
+
+    .section-3 {
+        padding: 45px 15px;
+    }
+
+    .cards{
+        gap: 10px;
+    }
+
+    .card-image {
+        height: 220px;
+    }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .section-3 {
+        padding: 55px 20px;
+    }
+
+    .section-3 h3 {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+    }
+
+    .section-3 > a {
+        margin-left: 0;
+        margin-bottom: 25px;
+
+        font-size: 12px;
+    }
+
+
+    /* 2 CARDS PER ROW */
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px 12px;
+    }
+
+
+    .card-image img {
+        width: 100%;
+        height: 230px;
+    }
+
+
+    .card-image h4 {
+        margin-top: 10px;
+
+        font-size: 15px;
+    }
+
+
+    .card-image a {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .section-3 {
+        padding: 45px 15px;
+    }
+
+    .cards {
+        gap: 22px 10px;
+    }
+    .card-image{
+        overflow: visible;
+        margin-bottom: 15px;
+    }
+    .card-image img {
+        height: 200px;
+    }
+
+    .card-image h4 {
+        font-size: 14px;
+    }
+
+}
